@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Microsoft.SharePoint;
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.SharePoint.Client;
+
 
 namespace WindowsFormsApp1
 {
@@ -19,6 +22,19 @@ namespace WindowsFormsApp1
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Base());
         }
+
+
+        public static void spDownload(string source) {
+           
+            }
+        
+        
+        
+        
+        
+        
+        
+        
 
         //Recursively Duplicates files and folders from inFile Directory to OutFile Directory
         public static void duplicate(String inFile, String outFile)
@@ -51,17 +67,22 @@ namespace WindowsFormsApp1
         {
             string fileName;
             string directoryName;
-           
+
             foreach (var file in Directory.GetFiles(outfile))
             {
                 fileName = file.Replace("_MONTH_", month);
                 fileName = fileName.Replace("_SITE_", siteName);
                 fileName = fileName.Replace("_PROGRAM_", programName);
-
-                File.Move(file, fileName);
-
-
+                if (!File.Exists(fileName))
+                {
+                    File.Move(file, fileName);
+                }
+                
             }
+         
+
+
+            
             foreach (var directory in Directory.GetDirectories(outfile))
             {
                 directoryName = directory.Replace("_MONTH_", month);
