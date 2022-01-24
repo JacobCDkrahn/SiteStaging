@@ -7,10 +7,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 
 
@@ -116,8 +119,8 @@ namespace WindowsFormsApp1
                 }
             }
             //Dest Verification
-                if (sPDestCheck.Checked == true) {
-                if (sPDest.Text.Length ==0)
+            if (sPDestCheck.Checked) {
+                if (sPDestText.Text.Length ==0)
                 {
 
                     MessageBox.Show("Please Input a SharePoint Destination");
@@ -129,8 +132,8 @@ namespace WindowsFormsApp1
                     target= sPDestText.Text;
                 }
             }
-            if (localDestCheck.Checked == true) {
-                if (destinationFolder.Text.Length==0)
+            if (localDestCheck.Checked) {
+                if (targetText.Text.Length==0)
                 {
                     MessageBox.Show("Please Input a Local Source");
                 }
@@ -169,21 +172,37 @@ namespace WindowsFormsApp1
                         MessageBox.Show("You must connect to SharePoint");
                     
                     }
+                    if (duplicateCheckBox.Checked)
+                    {
+                       
+                        Web web = context.Web;
+                        Microsoft.SharePoint.Client.File filetoDownload = web.GetFileByServerRelativeUrl(sharePointTextBox.Text);
+                        context.Load(filetoDownload);
+                        context.ExecuteQuery();
+                        var fileRef = filetoDownload.ServerRelativeUrl;
+                        var fileInfo = Microsoft.SharePoint.Client.File.OpenBinaryDirect(context, fileRef);
+                        var fileName = Path.Combine(targetText.Text, (string)filetoDownload.Name);
 
-                    var request = System.Net.HttpWebRequest.Create(sharePointTextBox.Text);
-                    request.Credentials = context.Credentials;
-                    using (var reader = new StreamReader(request.GetResponse().GetResponseStream())) {
-                        using (var writer = new StreamWriter(targetText.Text)) { 
-                        writer.Write(reader.ReadToEnd());
+                        using (var fileStream = System.IO.File.Create(fileName))
+                        {
+                            fileInfo.Stream.CopyTo(fileStream);
                         }
+                    }
+                    if (renameCheckBox.Checked) {
+
+
+                        Program.rename(siteBox.Text, monthBox.Text, programBox.Text, target);
+
+
+
                     }
 
 
 
 
 
-
-                }else {
+                }
+                else {
                     if (duplicateCheckBox.Checked)
                     {
                         Program.duplicate(source, target);
@@ -273,31 +292,33 @@ namespace WindowsFormsApp1
 
         }
 
-        private void connectButton_Click(object sender, EventArgs e)
-        {
-
-            context = new ClientContext(SharePointRoot.Text);
-            Web web = context.Web;
-            SecureString pword = new SecureString();
-            passwordBox.Text.ToList().ForEach(pword.AppendChar);
-            context.Credentials = new SharePointOnlineCredentials(userNameText.Text,pword);
-            Site site = context.Site;
-            context.Load(site);
- 
-            context.ExecuteQuery();
+   
     
-     
-     
-            ConnectStatus.Text = "YES";
-            ConnectStatus.ForeColor = Color.Green;
-
-        
-
-        }
-
         private void sharePointTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void connectButton_Click(object sender, EventArgs e)
+        {
+          
+
+
+
+                context = new ClientContext(SharePointRoot.Text);
+           // Web web = context.Web;
+            SecureString pword = new SecureString();
+                passwordBox.Text.ToList().ForEach(pword.AppendChar);
+                context.Credentials = new SharePointOnlineCredentials(userNameText.Text, pword);
+                Site site = context.Site;
+                context.Load(site);
+            // context.ExecuteQuery();
+
+
+
+            ConnectStatus.Text = "YES";
+                ConnectStatus.ForeColor = Color.Green;
+            
         }
     }
 }

@@ -34,6 +34,20 @@
             this.targetText = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SharePointRoot = new System.Windows.Forms.TextBox();
+            this.Site = new System.Windows.Forms.Label();
+            this.passwordBox = new System.Windows.Forms.TextBox();
+            this.userNameText = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.Label();
+            this.Username = new System.Windows.Forms.Label();
+            this.connectButton = new System.Windows.Forms.Button();
+            this.ConnectText = new System.Windows.Forms.Label();
+            this.ConnectStatus = new System.Windows.Forms.Label();
+            this.ConnectedText = new System.Windows.Forms.Label();
+            this.localDestCheck = new System.Windows.Forms.CheckBox();
+            this.sPDestCheck = new System.Windows.Forms.CheckBox();
+            this.sPDest = new System.Windows.Forms.Label();
+            this.sPDestText = new System.Windows.Forms.TextBox();
             this.sharePointTextBox = new System.Windows.Forms.TextBox();
             this.SharePointURL = new System.Windows.Forms.Label();
             this.Execute = new System.Windows.Forms.Button();
@@ -50,20 +64,6 @@
             this.monthBox = new System.Windows.Forms.TextBox();
             this.SiteLabel = new System.Windows.Forms.Label();
             this.siteBox = new System.Windows.Forms.TextBox();
-            this.sPDest = new System.Windows.Forms.Label();
-            this.sPDestText = new System.Windows.Forms.TextBox();
-            this.localDestCheck = new System.Windows.Forms.CheckBox();
-            this.sPDestCheck = new System.Windows.Forms.CheckBox();
-            this.ConnectedText = new System.Windows.Forms.Label();
-            this.ConnectStatus = new System.Windows.Forms.Label();
-            this.ConnectText = new System.Windows.Forms.Label();
-            this.connectButton = new System.Windows.Forms.Button();
-            this.SharePointRoot = new System.Windows.Forms.TextBox();
-            this.Site = new System.Windows.Forms.Label();
-            this.passwordBox = new System.Windows.Forms.TextBox();
-            this.userNameText = new System.Windows.Forms.TextBox();
-            this.password = new System.Windows.Forms.Label();
-            this.Username = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.varPanel.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +113,6 @@
             this.panel1.Controls.Add(this.userNameText);
             this.panel1.Controls.Add(this.password);
             this.panel1.Controls.Add(this.Username);
-            this.panel1.Controls.Add(this.connectButton);
             this.panel1.Controls.Add(this.ConnectText);
             this.panel1.Controls.Add(this.ConnectStatus);
             this.panel1.Controls.Add(this.ConnectedText);
@@ -134,11 +133,142 @@
             this.panel1.Controls.Add(this.targetText);
             this.panel1.Controls.Add(this.inFolder);
             this.panel1.Controls.Add(this.sourceText);
+            this.panel1.Controls.Add(this.connectButton);
             this.panel1.Location = new System.Drawing.Point(8, 11);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(532, 449);
             this.panel1.TabIndex = 8;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // SharePointRoot
+            // 
+            this.SharePointRoot.Location = new System.Drawing.Point(102, 31);
+            this.SharePointRoot.Name = "SharePointRoot";
+            this.SharePointRoot.Size = new System.Drawing.Size(220, 20);
+            this.SharePointRoot.TabIndex = 31;
+            this.SharePointRoot.Text = "https://jacobkrahn.sharepoint.com/sites/SiteStaging/";
+            // 
+            // Site
+            // 
+            this.Site.AutoSize = true;
+            this.Site.Location = new System.Drawing.Point(12, 34);
+            this.Site.Name = "Site";
+            this.Site.Size = new System.Drawing.Size(84, 13);
+            this.Site.TabIndex = 30;
+            this.Site.Text = "Sharepoint Root";
+            // 
+            // passwordBox
+            // 
+            this.passwordBox.Location = new System.Drawing.Point(102, 89);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.Size = new System.Drawing.Size(220, 20);
+            this.passwordBox.TabIndex = 29;
+            this.passwordBox.Text = "B4ssmasta";
+            // 
+            // userNameText
+            // 
+            this.userNameText.Location = new System.Drawing.Point(102, 59);
+            this.userNameText.Name = "userNameText";
+            this.userNameText.Size = new System.Drawing.Size(220, 20);
+            this.userNameText.TabIndex = 28;
+            this.userNameText.Text = "jacobkrahn@jacobkrahn.onmicrosoft.com";
+            // 
+            // password
+            // 
+            this.password.AutoSize = true;
+            this.password.Location = new System.Drawing.Point(43, 89);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(53, 13);
+            this.password.TabIndex = 27;
+            this.password.Text = "Password";
+            // 
+            // Username
+            // 
+            this.Username.AutoSize = true;
+            this.Username.Location = new System.Drawing.Point(40, 59);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(55, 13);
+            this.Username.TabIndex = 26;
+            this.Username.Text = "Username";
+            // 
+            // connectButton
+            // 
+            this.connectButton.Location = new System.Drawing.Point(192, 123);
+            this.connectButton.Name = "connectButton";
+            this.connectButton.Size = new System.Drawing.Size(75, 23);
+            this.connectButton.TabIndex = 25;
+            this.connectButton.Text = "Connect";
+            this.connectButton.UseVisualStyleBackColor = true;
+            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
+            // 
+            // ConnectText
+            // 
+            this.ConnectText.AutoSize = true;
+            this.ConnectText.Location = new System.Drawing.Point(68, 128);
+            this.ConnectText.Name = "ConnectText";
+            this.ConnectText.Size = new System.Drawing.Size(118, 13);
+            this.ConnectText.TabIndex = 24;
+            this.ConnectText.Text = "Connect To SharePoint";
+            // 
+            // ConnectStatus
+            // 
+            this.ConnectStatus.AutoSize = true;
+            this.ConnectStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectStatus.ForeColor = System.Drawing.Color.Red;
+            this.ConnectStatus.Location = new System.Drawing.Point(438, 121);
+            this.ConnectStatus.Name = "ConnectStatus";
+            this.ConnectStatus.Size = new System.Drawing.Size(32, 20);
+            this.ConnectStatus.TabIndex = 23;
+            this.ConnectStatus.Text = "NO";
+            this.ConnectStatus.UseMnemonic = false;
+            // 
+            // ConnectedText
+            // 
+            this.ConnectedText.AutoSize = true;
+            this.ConnectedText.Location = new System.Drawing.Point(318, 128);
+            this.ConnectedText.Name = "ConnectedText";
+            this.ConnectedText.Size = new System.Drawing.Size(114, 13);
+            this.ConnectedText.TabIndex = 22;
+            this.ConnectedText.Text = "SharePoint Connected";
+            this.ConnectedText.Click += new System.EventHandler(this.label1_Click_3);
+            // 
+            // localDestCheck
+            // 
+            this.localDestCheck.AutoSize = true;
+            this.localDestCheck.Location = new System.Drawing.Point(156, 317);
+            this.localDestCheck.Name = "localDestCheck";
+            this.localDestCheck.Size = new System.Drawing.Size(108, 17);
+            this.localDestCheck.TabIndex = 21;
+            this.localDestCheck.Text = "Local Destination";
+            this.localDestCheck.UseVisualStyleBackColor = true;
+            this.localDestCheck.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
+            // 
+            // sPDestCheck
+            // 
+            this.sPDestCheck.AutoSize = true;
+            this.sPDestCheck.Location = new System.Drawing.Point(156, 294);
+            this.sPDestCheck.Name = "sPDestCheck";
+            this.sPDestCheck.Size = new System.Drawing.Size(134, 17);
+            this.sPDestCheck.TabIndex = 20;
+            this.sPDestCheck.Text = "SharePoint Destination";
+            this.sPDestCheck.UseVisualStyleBackColor = true;
+            this.sPDestCheck.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // sPDest
+            // 
+            this.sPDest.AutoSize = true;
+            this.sPDest.Location = new System.Drawing.Point(44, 222);
+            this.sPDest.Name = "sPDest";
+            this.sPDest.Size = new System.Drawing.Size(60, 26);
+            this.sPDest.TabIndex = 19;
+            this.sPDest.Text = "SharePoint\r\nDestination";
+            // 
+            // sPDestText
+            // 
+            this.sPDestText.Location = new System.Drawing.Point(110, 224);
+            this.sPDestText.Name = "sPDestText";
+            this.sPDestText.Size = new System.Drawing.Size(329, 20);
+            this.sPDestText.TabIndex = 18;
             // 
             // sharePointTextBox
             // 
@@ -300,136 +430,6 @@
             this.siteBox.Size = new System.Drawing.Size(119, 20);
             this.siteBox.TabIndex = 0;
             this.siteBox.Text = "Sitename Here";
-            // 
-            // sPDest
-            // 
-            this.sPDest.AutoSize = true;
-            this.sPDest.Location = new System.Drawing.Point(44, 222);
-            this.sPDest.Name = "sPDest";
-            this.sPDest.Size = new System.Drawing.Size(60, 26);
-            this.sPDest.TabIndex = 19;
-            this.sPDest.Text = "SharePoint\r\nDestination";
-            // 
-            // sPDestText
-            // 
-            this.sPDestText.Location = new System.Drawing.Point(110, 224);
-            this.sPDestText.Name = "sPDestText";
-            this.sPDestText.Size = new System.Drawing.Size(329, 20);
-            this.sPDestText.TabIndex = 18;
-            // 
-            // localDestCheck
-            // 
-            this.localDestCheck.AutoSize = true;
-            this.localDestCheck.Location = new System.Drawing.Point(156, 317);
-            this.localDestCheck.Name = "localDestCheck";
-            this.localDestCheck.Size = new System.Drawing.Size(108, 17);
-            this.localDestCheck.TabIndex = 21;
-            this.localDestCheck.Text = "Local Destination";
-            this.localDestCheck.UseVisualStyleBackColor = true;
-            this.localDestCheck.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
-            // 
-            // sPDestCheck
-            // 
-            this.sPDestCheck.AutoSize = true;
-            this.sPDestCheck.Location = new System.Drawing.Point(156, 294);
-            this.sPDestCheck.Name = "sPDestCheck";
-            this.sPDestCheck.Size = new System.Drawing.Size(134, 17);
-            this.sPDestCheck.TabIndex = 20;
-            this.sPDestCheck.Text = "SharePoint Destination";
-            this.sPDestCheck.UseVisualStyleBackColor = true;
-            this.sPDestCheck.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // ConnectedText
-            // 
-            this.ConnectedText.AutoSize = true;
-            this.ConnectedText.Location = new System.Drawing.Point(318, 128);
-            this.ConnectedText.Name = "ConnectedText";
-            this.ConnectedText.Size = new System.Drawing.Size(114, 13);
-            this.ConnectedText.TabIndex = 22;
-            this.ConnectedText.Text = "SharePoint Connected";
-            this.ConnectedText.Click += new System.EventHandler(this.label1_Click_3);
-            // 
-            // ConnectStatus
-            // 
-            this.ConnectStatus.AutoSize = true;
-            this.ConnectStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConnectStatus.ForeColor = System.Drawing.Color.Red;
-            this.ConnectStatus.Location = new System.Drawing.Point(438, 121);
-            this.ConnectStatus.Name = "ConnectStatus";
-            this.ConnectStatus.Size = new System.Drawing.Size(32, 20);
-            this.ConnectStatus.TabIndex = 23;
-            this.ConnectStatus.Text = "NO";
-            this.ConnectStatus.UseMnemonic = false;
-            // 
-            // ConnectText
-            // 
-            this.ConnectText.AutoSize = true;
-            this.ConnectText.Location = new System.Drawing.Point(68, 128);
-            this.ConnectText.Name = "ConnectText";
-            this.ConnectText.Size = new System.Drawing.Size(118, 13);
-            this.ConnectText.TabIndex = 24;
-            this.ConnectText.Text = "Connect To SharePoint";
-            // 
-            // connectButton
-            // 
-            this.connectButton.Location = new System.Drawing.Point(189, 123);
-            this.connectButton.Name = "connectButton";
-            this.connectButton.Size = new System.Drawing.Size(75, 23);
-            this.connectButton.TabIndex = 25;
-            this.connectButton.Text = "Connect";
-            this.connectButton.UseVisualStyleBackColor = true;
-            this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
-            // 
-            // SharePointRoot
-            // 
-            this.SharePointRoot.Location = new System.Drawing.Point(102, 31);
-            this.SharePointRoot.Name = "SharePointRoot";
-            this.SharePointRoot.Size = new System.Drawing.Size(220, 20);
-            this.SharePointRoot.TabIndex = 31;
-            this.SharePointRoot.Text = "https://jacobkrahn.sharepoint.com/sites/SiteStaging/";
-            // 
-            // Site
-            // 
-            this.Site.AutoSize = true;
-            this.Site.Location = new System.Drawing.Point(12, 34);
-            this.Site.Name = "Site";
-            this.Site.Size = new System.Drawing.Size(84, 13);
-            this.Site.TabIndex = 30;
-            this.Site.Text = "Sharepoint Root";
-            // 
-            // passwordBox
-            // 
-            this.passwordBox.Location = new System.Drawing.Point(102, 89);
-            this.passwordBox.Name = "passwordBox";
-            this.passwordBox.Size = new System.Drawing.Size(220, 20);
-            this.passwordBox.TabIndex = 29;
-            this.passwordBox.Text = "B4ssmasta";
-            // 
-            // userNameText
-            // 
-            this.userNameText.Location = new System.Drawing.Point(102, 59);
-            this.userNameText.Name = "userNameText";
-            this.userNameText.Size = new System.Drawing.Size(220, 20);
-            this.userNameText.TabIndex = 28;
-            this.userNameText.Text = "jacobkrahn@jacobkrahn.onmicrosoft.com";
-            // 
-            // password
-            // 
-            this.password.AutoSize = true;
-            this.password.Location = new System.Drawing.Point(43, 89);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(53, 13);
-            this.password.TabIndex = 27;
-            this.password.Text = "Password";
-            // 
-            // Username
-            // 
-            this.Username.AutoSize = true;
-            this.Username.Location = new System.Drawing.Point(40, 59);
-            this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(55, 13);
-            this.Username.TabIndex = 26;
-            this.Username.Text = "Username";
             // 
             // Base
             // 

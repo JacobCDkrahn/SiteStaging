@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.SharePoint.Client;
-
+using File = System.IO.File;
 
 namespace WindowsFormsApp1
 {
