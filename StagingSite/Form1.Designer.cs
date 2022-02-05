@@ -55,14 +55,14 @@
             this.ConnectText = new System.Windows.Forms.Label();
             this.ConnectStatus = new System.Windows.Forms.Label();
             this.ConnectedText = new System.Windows.Forms.Label();
-            this.sPDest = new System.Windows.Forms.Label();
-            this.sPDestText = new System.Windows.Forms.TextBox();
+           // this.sPDest = new System.Windows.Forms.Label();
+           // this.sPDestText = new System.Windows.Forms.TextBox();
             this.destinationFolder = new System.Windows.Forms.Label();
             this.templateSourceLabel = new System.Windows.Forms.Label();
             this.connectButton = new System.Windows.Forms.Button();
             this.connectPanel = new System.Windows.Forms.Panel();
             this.locationPanel = new System.Windows.Forms.Panel();
-            this.sharePointTextBox = new System.Windows.Forms.TextBox();
+           this.sharePointTextBox = new System.Windows.Forms.TextBox();
             this.SharePointURL = new System.Windows.Forms.Label();
             this.optionsPanel = new System.Windows.Forms.Panel();
             this.sourceBoxLabel = new System.Windows.Forms.Label();
@@ -155,8 +155,8 @@
             this.panel1.Controls.Add(this.ConnectText);
             this.panel1.Controls.Add(this.ConnectStatus);
             this.panel1.Controls.Add(this.ConnectedText);
-            this.panel1.Controls.Add(this.sPDest);
-            this.panel1.Controls.Add(this.sPDestText);
+           // this.panel1.Controls.Add(this.sPDest);
+           // this.panel1.Controls.Add(this.sPDestText);
             this.panel1.Controls.Add(this.destinationFolder);
             this.panel1.Controls.Add(this.templateSourceLabel);
             this.panel1.Controls.Add(this.outFolder);
@@ -247,7 +247,7 @@
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.destinationBoxLabel);
-            this.panel2.Controls.Add(this.sPDRadio);
+           // this.panel2.Controls.Add(this.sPDRadio);
             this.panel2.Controls.Add(this.lDradio);
             this.panel2.Location = new System.Drawing.Point(143, 297);
             this.panel2.Name = "panel2";
@@ -387,22 +387,22 @@
             // 
             // sPDest
             // 
-            this.sPDest.AutoSize = true;
-            this.sPDest.BackColor = System.Drawing.Color.Silver;
-            this.sPDest.Location = new System.Drawing.Point(44, 232);
-            this.sPDest.Name = "sPDest";
-            this.sPDest.Size = new System.Drawing.Size(60, 26);
-            this.sPDest.TabIndex = 19;
-            this.sPDest.Text = "SharePoint\r\nDestination";
-            this.sPDest.Visible = false;
+           // this.sPDest.AutoSize = true;
+            //this.sPDest.BackColor = System.Drawing.Color.Silver;
+            //this.sPDest.Location = new System.Drawing.Point(44, 232);
+            //this.sPDest.Name = "sPDest";
+            //this.sPDest.Size = new System.Drawing.Size(60, 26);
+            //this.sPDest.TabIndex = 19;
+           // this.sPDest.Text = "SharePoint\r\nDestination";
+           // this.sPDest.Visible = false;
             // 
             // sPDestText
             // 
-            this.sPDestText.Location = new System.Drawing.Point(110, 234);
-            this.sPDestText.Name = "sPDestText";
-            this.sPDestText.Size = new System.Drawing.Size(329, 20);
-            this.sPDestText.TabIndex = 18;
-            this.sPDestText.Visible = false;
+           //this.sPDestText.Location = new System.Drawing.Point(110, 234);
+            //this.sPDestText.Name = "sPDestText";
+            //this.sPDestText.Size = new System.Drawing.Size(329, 20);
+            //this.sPDestText.TabIndex = 18;
+            //this.sPDestText.Visible = false;
             // 
             // destinationFolder
             // 
@@ -450,8 +450,8 @@
             // 
             this.locationPanel.BackColor = System.Drawing.Color.Silver;
             this.locationPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.locationPanel.Controls.Add(this.sharePointTextBox);
-            this.locationPanel.Controls.Add(this.SharePointURL);
+          this.locationPanel.Controls.Add(this.sharePointTextBox);
+           this.locationPanel.Controls.Add(this.SharePointURL);
             this.locationPanel.Location = new System.Drawing.Point(9, 170);
             this.locationPanel.Name = "locationPanel";
             this.locationPanel.Size = new System.Drawing.Size(514, 120);
@@ -459,13 +459,13 @@
             // 
             // sharePointTextBox
             // 
-            this.sharePointTextBox.Location = new System.Drawing.Point(99, 39);
-            this.sharePointTextBox.Name = "sharePointTextBox";
-            this.sharePointTextBox.Size = new System.Drawing.Size(329, 20);
-            this.sharePointTextBox.TabIndex = 16;
-            this.sharePointTextBox.Text = "https://jacobkrahn.sharepoint.com/sites/SiteStaging/Shared%20Documents/TestFolder" +
+          this.sharePointTextBox.Location = new System.Drawing.Point(99, 39);
+           this.sharePointTextBox.Name = "sharePointTextBox";
+          this.sharePointTextBox.Size = new System.Drawing.Size(329, 20);
+          this.sharePointTextBox.TabIndex = 16;
+          this.sharePointTextBox.Text = "https://jacobkrahn.sharepoint.com/sites/SiteStaging/Shared%20Documents/TestFolder" +
     "";
-            this.sharePointTextBox.Visible = false;
+           this.sharePointTextBox.Visible = false;
             // 
             // SharePointURL
             // 
@@ -477,6 +477,7 @@
             this.SharePointURL.TabIndex = 15;
             this.SharePointURL.Text = "SharePoint Source";
             this.SharePointURL.Visible = false;
+       
             // 
             // optionsPanel
             // 

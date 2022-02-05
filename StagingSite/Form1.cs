@@ -207,6 +207,7 @@ namespace WindowsFormsApp1
 
 
             connect();
+            passwordBox.Text = "*********";
             
         }
         private void connect() {
