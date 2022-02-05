@@ -43,7 +43,6 @@
             this.duplicateCheckBox = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.destinationBoxLabel = new System.Windows.Forms.Label();
-            this.sPDRadio = new System.Windows.Forms.RadioButton();
             this.lDradio = new System.Windows.Forms.RadioButton();
             this.SharePointRoot = new System.Windows.Forms.TextBox();
             this.Site = new System.Windows.Forms.Label();
@@ -55,19 +54,18 @@
             this.ConnectText = new System.Windows.Forms.Label();
             this.ConnectStatus = new System.Windows.Forms.Label();
             this.ConnectedText = new System.Windows.Forms.Label();
-           // this.sPDest = new System.Windows.Forms.Label();
-           // this.sPDestText = new System.Windows.Forms.TextBox();
             this.destinationFolder = new System.Windows.Forms.Label();
             this.templateSourceLabel = new System.Windows.Forms.Label();
             this.connectButton = new System.Windows.Forms.Button();
             this.connectPanel = new System.Windows.Forms.Panel();
             this.locationPanel = new System.Windows.Forms.Panel();
-           this.sharePointTextBox = new System.Windows.Forms.TextBox();
+            this.sharePointTextBox = new System.Windows.Forms.TextBox();
             this.SharePointURL = new System.Windows.Forms.Label();
             this.optionsPanel = new System.Windows.Forms.Panel();
             this.sourceBoxLabel = new System.Windows.Forms.Label();
             this.lSRadio = new System.Windows.Forms.RadioButton();
             this.sPSRadio = new System.Windows.Forms.RadioButton();
+            this.sPDRadio = new System.Windows.Forms.RadioButton();
             this.varPanel = new System.Windows.Forms.Panel();
             this.participantPanel = new System.Windows.Forms.Panel();
             this.participantSeriesLabel = new System.Windows.Forms.Label();
@@ -155,8 +153,6 @@
             this.panel1.Controls.Add(this.ConnectText);
             this.panel1.Controls.Add(this.ConnectStatus);
             this.panel1.Controls.Add(this.ConnectedText);
-           // this.panel1.Controls.Add(this.sPDest);
-           // this.panel1.Controls.Add(this.sPDestText);
             this.panel1.Controls.Add(this.destinationFolder);
             this.panel1.Controls.Add(this.templateSourceLabel);
             this.panel1.Controls.Add(this.outFolder);
@@ -247,7 +243,6 @@
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.destinationBoxLabel);
-           // this.panel2.Controls.Add(this.sPDRadio);
             this.panel2.Controls.Add(this.lDradio);
             this.panel2.Location = new System.Drawing.Point(143, 297);
             this.panel2.Name = "panel2";
@@ -263,18 +258,6 @@
             this.destinationBoxLabel.Size = new System.Drawing.Size(120, 25);
             this.destinationBoxLabel.TabIndex = 25;
             this.destinationBoxLabel.Text = "Destination";
-            // 
-            // sPDRadio
-            // 
-            this.sPDRadio.AutoSize = true;
-            this.sPDRadio.Location = new System.Drawing.Point(7, 21);
-            this.sPDRadio.Name = "sPDRadio";
-            this.sPDRadio.Size = new System.Drawing.Size(78, 30);
-            this.sPDRadio.TabIndex = 23;
-            this.sPDRadio.TabStop = true;
-            this.sPDRadio.Text = "SharePoint\r\nDestination";
-            this.sPDRadio.UseVisualStyleBackColor = true;
-            this.sPDRadio.CheckedChanged += new System.EventHandler(this.sPDRadio_CheckedChanged);
             // 
             // lDradio
             // 
@@ -385,25 +368,6 @@
             this.ConnectedText.TabIndex = 22;
             this.ConnectedText.Text = "SharePoint Connected";
             // 
-            // sPDest
-            // 
-           // this.sPDest.AutoSize = true;
-            //this.sPDest.BackColor = System.Drawing.Color.Silver;
-            //this.sPDest.Location = new System.Drawing.Point(44, 232);
-            //this.sPDest.Name = "sPDest";
-            //this.sPDest.Size = new System.Drawing.Size(60, 26);
-            //this.sPDest.TabIndex = 19;
-           // this.sPDest.Text = "SharePoint\r\nDestination";
-           // this.sPDest.Visible = false;
-            // 
-            // sPDestText
-            // 
-           //this.sPDestText.Location = new System.Drawing.Point(110, 234);
-            //this.sPDestText.Name = "sPDestText";
-            //this.sPDestText.Size = new System.Drawing.Size(329, 20);
-            //this.sPDestText.TabIndex = 18;
-            //this.sPDestText.Visible = false;
-            // 
             // destinationFolder
             // 
             this.destinationFolder.AutoSize = true;
@@ -450,8 +414,8 @@
             // 
             this.locationPanel.BackColor = System.Drawing.Color.Silver;
             this.locationPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-          this.locationPanel.Controls.Add(this.sharePointTextBox);
-           this.locationPanel.Controls.Add(this.SharePointURL);
+            this.locationPanel.Controls.Add(this.sharePointTextBox);
+            this.locationPanel.Controls.Add(this.SharePointURL);
             this.locationPanel.Location = new System.Drawing.Point(9, 170);
             this.locationPanel.Name = "locationPanel";
             this.locationPanel.Size = new System.Drawing.Size(514, 120);
@@ -459,13 +423,13 @@
             // 
             // sharePointTextBox
             // 
-          this.sharePointTextBox.Location = new System.Drawing.Point(99, 39);
-           this.sharePointTextBox.Name = "sharePointTextBox";
-          this.sharePointTextBox.Size = new System.Drawing.Size(329, 20);
-          this.sharePointTextBox.TabIndex = 16;
-          this.sharePointTextBox.Text = "https://jacobkrahn.sharepoint.com/sites/SiteStaging/Shared%20Documents/TestFolder" +
+            this.sharePointTextBox.Location = new System.Drawing.Point(99, 39);
+            this.sharePointTextBox.Name = "sharePointTextBox";
+            this.sharePointTextBox.Size = new System.Drawing.Size(329, 20);
+            this.sharePointTextBox.TabIndex = 16;
+            this.sharePointTextBox.Text = "https://jacobkrahn.sharepoint.com/sites/SiteStaging/Shared%20Documents/TestFolder" +
     "";
-           this.sharePointTextBox.Visible = false;
+            this.sharePointTextBox.Visible = false;
             // 
             // SharePointURL
             // 
@@ -477,7 +441,6 @@
             this.SharePointURL.TabIndex = 15;
             this.SharePointURL.Text = "SharePoint Source";
             this.SharePointURL.Visible = false;
-       
             // 
             // optionsPanel
             // 
@@ -524,6 +487,18 @@
             this.sPSRadio.Text = "SharePoint Source";
             this.sPSRadio.UseVisualStyleBackColor = true;
             this.sPSRadio.CheckedChanged += new System.EventHandler(this.sPSRadio_CheckedChanged);
+            // 
+            // sPDRadio
+            // 
+            this.sPDRadio.AutoSize = true;
+            this.sPDRadio.Location = new System.Drawing.Point(7, 21);
+            this.sPDRadio.Name = "sPDRadio";
+            this.sPDRadio.Size = new System.Drawing.Size(78, 30);
+            this.sPDRadio.TabIndex = 23;
+            this.sPDRadio.TabStop = true;
+            this.sPDRadio.Text = "SharePoint\r\nDestination";
+            this.sPDRadio.UseVisualStyleBackColor = true;
+            this.sPDRadio.CheckedChanged += new System.EventHandler(this.sPDRadio_CheckedChanged);
             // 
             // varPanel
             // 
