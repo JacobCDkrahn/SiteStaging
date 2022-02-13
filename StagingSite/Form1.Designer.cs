@@ -277,7 +277,8 @@
             this.SharePointRoot.Name = "SharePointRoot";
             this.SharePointRoot.Size = new System.Drawing.Size(220, 20);
             this.SharePointRoot.TabIndex = 31;
-            this.SharePointRoot.Text = "https://jacobkrahn.sharepoint.com/sites/SiteStaging/";
+            this.SharePointRoot.Text = "";
+            this.SharePointRoot.TextChanged += new System.EventHandler(this.SharePointRoot_TextChanged);
             // 
             // Site
             // 
@@ -305,7 +306,6 @@
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(220, 20);
             this.passwordBox.TabIndex = 29;
-            this.passwordBox.Text = "B4ssmasta";
             // 
             // userNameText
             // 
@@ -313,7 +313,6 @@
             this.userNameText.Name = "userNameText";
             this.userNameText.Size = new System.Drawing.Size(220, 20);
             this.userNameText.TabIndex = 28;
-            this.userNameText.Text = "jacobkrahn@jacobkrahn.onmicrosoft.com";
             // 
             // password
             // 
@@ -427,8 +426,6 @@
             this.sharePointTextBox.Name = "sharePointTextBox";
             this.sharePointTextBox.Size = new System.Drawing.Size(329, 20);
             this.sharePointTextBox.TabIndex = 16;
-            this.sharePointTextBox.Text = "https://jacobkrahn.sharepoint.com/sites/SiteStaging/Shared%20Documents/TestFolder" +
-    "";
             this.sharePointTextBox.Visible = false;
             // 
             // SharePointURL
